@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Destination from './components/Destination';
+import TravelCalculator from './components/TravelCalculator';
+
+const destinations = [
+  {
+    name: 'Ibiza',
+    country: 'España',
+    description: 'Ibiza es conocida por su vida nocturna vibrante y hermosas playas.'
+  },
+  // Agrega más destinos aquí
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+      <h1>Destinos de Verano en Europa</h1>
+      {destinations.map((destination, index) => (
+        <Destination key={index} {...destination} />
+      ))}
+      <div>
+      <TravelCalculator />
     </div>
+    </>
   );
 }
 
